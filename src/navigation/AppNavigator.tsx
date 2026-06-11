@@ -1,19 +1,25 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ForgotPassword from '../screens/ForgotPassword';
 import Signup from '../screens/Signup';
+import {
+  NavigationContainer,
+  DarkTheme,
+  DefaultTheme,
+} from '@react-navigation/native';
 
 
 const Stack = createNativeStackNavigator();
+type AppNavigatorProps = {
+  isDarkMode: boolean;
+};
 
-export default function AppNavigator() {
+export default function AppNavigator({ isDarkMode }: AppNavigatorProps) {
   return (
-    <NavigationContainer>
+    <NavigationContainer   theme={isDarkMode ? DarkTheme : DefaultTheme}>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
           name="Login"
