@@ -1,7 +1,7 @@
 import {
   View,
   Text,
-FlatList,
+ FlatList,
 TouchableOpacity,
  
 } from 'react-native';
@@ -18,7 +18,10 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/types';
+import AppFlatList from '../components/AppFlatList';
+import { Temp } from './Data';
 export default function HomeScreen() {
+
       const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
  const data = [
   { id: '1', name: 'Apple' },
@@ -47,6 +50,35 @@ export default function HomeScreen() {
   { id: '24', name: 'Raspberry' },
   { id: '25', name: 'Blackberry' },
 ];
+
+
+//  const Temp = [
+//   { id: '1', name: 'Lion' },
+//   { id: '2', name: 'Tiger' },
+//   { id: '3', name: 'Elephant' },
+//   { id: '4', name: 'Leopard' },
+//   { id: '5', name: 'Cheetah' },
+//   { id: '6', name: 'Giraffe' },
+//   { id: '7', name: 'Zebra' },
+//   { id: '8', name: 'Bear' },
+//   { id: '9', name: 'Wolf' },
+//   { id: '10', name: 'Fox' },
+//   { id: '11', name: 'Deer' },
+//   { id: '12', name: 'Rabbit' },
+//   { id: '13', name: 'Monkey' },
+//   { id: '14', name: 'Kangaroo' },
+//   { id: '15', name: 'Panda' },
+//   { id: '16', name: 'Hippopotamus' },
+//   { id: '17', name: 'Rhinoceros' },
+//   { id: '18', name: 'Crocodile' },
+//   { id: '19', name: 'Alligator' },
+//   { id: '20', name: 'Horse' },
+//   { id: '21', name: 'Dog' },
+//   { id: '22', name: 'Cat' },
+//   { id: '23', name: 'Camel' },
+//   { id: '24', name: 'Owl' },
+//   { id: '25', name: 'Eagle' },
+// ];
   return (
     <SafeAreaView style={CardStyles.Flex}>
     <SafeAreaProvider style={CommonStyles.SafeArea}>
@@ -58,6 +90,7 @@ export default function HomeScreen() {
          and maintainability across your codebase:Call Semantic Tokens, not Globals: Always
           apply your custom properties using the semantic tokens (e.g., background-color: var(--bg-primary);).
       </Text>
+<View style={CardStyles.Flex}>
 <FlatList
   data={data}
   keyExtractor={(item) => item.id}
@@ -72,6 +105,21 @@ export default function HomeScreen() {
     </View>
   )}
 />
+</View>
+<View style={CardStyles.Flex}>
+{/* // Using the reusable AppFlatList component */}
+    <Text>The reusable AppFlatList component</Text>
+<AppFlatList
+  data={Temp}
+  keyExtractor={(item) => item.id}
+  renderItem={({ item }) => (
+    <View style={CardStyles.card}>
+      <Text>{item.name}</Text>
+    </View>
+  )}
+/>
+
+</View>
 
       <TouchableOpacity
             style={CommonStyles.Button}

@@ -5,14 +5,10 @@ import { useColorScheme } from 'react-native';
 
 function App() {
    const isDarkMode = useColorScheme() === 'dark';
-
   return (
-
-
   <SafeAreaProvider>
       <AppNavigator isDarkMode={isDarkMode} />
   </SafeAreaProvider>
   );
 }
-
 export default App;
