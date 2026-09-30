@@ -54,3 +54,4 @@ MobX	Observable state management	Reactive programming style
 
 Login state managment based on user role
 
+MCP? Model Context Protocol
